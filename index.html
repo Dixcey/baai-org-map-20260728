@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="北京智源人工智能研究院的公开架构、研究方向与关键人物地图。资料截至2026年7月28日。">
+<title>智源研究院架构与关键人物地图 · 2026-07</title>
+<style>
+  :root{--bg:#f8fafc;--panel:#fff;--ink:#172033;--sub:#59657a;--faint:#8792a5;--line:#dce3ee;--hair:#e9edf4;--accent:#2563d7;--teal:#087d71;--purple:#7850aa;--orange:#b96416;--slate:#69758b;--red:#b3423b;--tag:#eef4ff;--tagink:#2255bb;--warn:#fff6df;--warnink:#8d6510;--green:#edf8f4;--greenink:#087354;--serif:"Songti SC","STSong","Noto Serif CJK SC",serif;--sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;--mono:"SFMono-Regular",Consolas,monospace}
+  :root[data-theme="dark"]{--bg:#10151d;--panel:#171e29;--ink:#e6ecf5;--sub:#a7b1c1;--faint:#748094;--line:#303a4b;--hair:#242d3c;--accent:#7fa7ff;--teal:#48c0af;--purple:#be9ced;--orange:#f0a45b;--slate:#a0acbd;--red:#fa958c;--tag:#1d2d4d;--tagink:#a9c5ff;--warn:#32280e;--warnink:#e8c66a;--green:#102f2b;--greenink:#77d8c3}
+  *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased} a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}a:hover,a:focus-visible{border-bottom-color:currentColor}a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}.wrap{max-width:1120px;margin:0 auto;padding:0 24px 86px}
+  #theme{position:fixed;right:18px;top:16px;z-index:3;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--sub);font:12px var(--sans);padding:8px 12px;cursor:pointer;box-shadow:0 3px 14px rgba(0,0,0,.09)}
+  #palm-watermark{position:fixed;right:18px;bottom:16px;z-index:2;display:flex;align-items:center;gap:8px;pointer-events:none;opacity:.34;color:var(--ink);font:11px/1.25 var(--sans);letter-spacing:.04em}#palm-watermark img{display:block;width:38px;height:38px;border-radius:5px}#palm-watermark span{display:block;font-family:var(--serif);font-weight:600}#palm-watermark small{display:block;margin-top:2px;font:9.5px var(--mono);letter-spacing:.08em}
+  header{position:relative;padding:68px 0 35px;border-bottom:2px solid var(--ink);overflow:hidden}.ghost{position:absolute;right:-9px;top:2px;color:var(--ink);font:700 155px/1 var(--serif);opacity:.045;user-select:none}.eyebrow{font:12px var(--mono);letter-spacing:.14em;color:var(--sub);margin:0 0 13px;text-transform:uppercase}h1,h2{font-family:var(--serif);letter-spacing:.02em}h1{position:relative;margin:0 0 12px;font-size:clamp(31px,5vw,49px);line-height:1.25} .lede{position:relative;max-width:50em;margin:0 0 20px;color:var(--sub)}.lede b{color:var(--ink);font-weight:600}.legend{display:flex;position:relative;gap:8px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--sub)}
+  .chip{display:inline-block;border:1px solid var(--line);border-radius:3px;padding:3px 7px;font-size:11.5px;line-height:1.2;vertical-align:1px;white-space:nowrap}.chip.confirm{background:var(--green);border-color:transparent;color:var(--greenink)}.chip.note{background:var(--warn);border-color:transparent;color:var(--warnink)}.chip.scope{background:var(--tag);border-color:transparent;color:var(--tagink)}.chip.old{color:var(--faint);background:transparent}
+  section{margin-top:57px}h2{font-size:25px;margin:0 0 5px;display:flex;gap:12px;align-items:baseline}.no{font:13px var(--mono);color:var(--accent);letter-spacing:.08em}.desc{max-width:60em;margin:0 0 21px;color:var(--sub);font-size:13.5px}.premises{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.premise,.card,.node,.person{background:var(--panel);border:1px solid var(--line);border-radius:5px}.premise{padding:17px 18px}.premise h3{font:600 16px var(--serif);margin:0 0 7px}.premise p{font-size:13px;color:var(--sub);margin:0}.premise b{color:var(--ink)}
+  .keyline{border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px;background:var(--panel);padding:15px 18px;margin-top:14px}.keyline p{margin:0;color:var(--sub);font-size:13.5px}.keyline b{color:var(--ink)}
+  .chart{display:flex;flex-direction:column;gap:14px}.tier{display:grid;gap:14px}.tier.top{grid-template-columns:minmax(0,1fr)}.tier.leaders{grid-template-columns:1.25fr 1fr}.tier.centers{grid-template-columns:repeat(3,minmax(0,1fr))}.node{padding:16px 17px;border-left:4px solid var(--lane,var(--line));min-width:0}.node.topnode{text-align:center;--lane:var(--ink)}.node .ey{font:11.5px var(--mono);letter-spacing:.08em;color:var(--sub);margin:0 0 5px}.node .who{font:600 17px var(--serif)}.node .role{font-size:12.5px;color:var(--sub);margin-top:2px}.node .detail{border-top:1px solid var(--hair);color:var(--sub);font-size:12.5px;margin-top:10px;padding-top:10px;line-height:1.6}.node .detail b{color:var(--ink);font-weight:600}.teamlist{list-style:none;padding:0;margin:11px 0 0}.teamlist li{padding:8px 0;border-top:1px solid var(--hair);font-size:12.5px;line-height:1.58}.teamlist strong{display:block;color:var(--ink);font-weight:600}.teamlist span{color:var(--sub)}.unit{display:inline-block;margin-left:4px;font:10.5px var(--mono);color:var(--faint);letter-spacing:.03em}
+  .lane-data{--lane:var(--accent)}.lane-model{--lane:var(--purple)}.lane-embody{--lane:var(--teal)}.lane-life{--lane:var(--orange)}.lane-safe{--lane:var(--red)}.lane-eco{--lane:var(--slate)}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 15px}.filters button{cursor:pointer;border:1px solid var(--line);border-radius:3px;padding:5px 9px;background:var(--panel);color:var(--sub);font:12px var(--sans)}.filters button[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}.people{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.person{padding:15px 16px;border-top:3px solid var(--lane,var(--line));min-width:0}.person .pname{font:600 18px var(--serif)}.person .ptitle{font-size:12.5px;color:var(--sub);margin:1px 0 9px}.person dl{margin:0;display:grid;grid-template-columns:3.4em minmax(0,1fr);gap:7px 9px;font-size:12.5px;line-height:1.6}.person dt{color:var(--faint)}.person dd{margin:0}.person dd span{color:var(--sub)}.person .status{margin-top:11px;border-top:1px solid var(--hair);padding-top:9px;font-size:11.5px;color:var(--faint)}.person[hidden]{display:none}
+  .twocol{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--panel)}table{border-collapse:collapse;width:100%;font-size:12.5px}th,td{text-align:left;padding:10px 11px;border-top:1px solid var(--hair);vertical-align:top}th{border-top:0;background:color-mix(in srgb,var(--panel) 82%,var(--bg));color:var(--sub);font-size:11.5px;font-weight:500;white-space:nowrap}td:first-child{font-weight:600;white-space:nowrap}.small{font-size:12px;color:var(--sub)}.tl{list-style:none;padding:0 0 0 21px;margin:0;border-left:2px solid var(--line)}.tl li{position:relative;padding:0 0 16px 2px;font-size:13px}.tl li:before{content:"";position:absolute;width:8px;height:8px;border:2px solid var(--accent);background:var(--bg);left:-28px;top:7px;border-radius:50%}.tl time{display:block;font:11.5px var(--mono);color:var(--accent);margin-bottom:2px}.tl b{font-weight:600}.srcgrid{columns:2;column-gap:34px;margin:0;padding-left:18px;font-size:12.5px;color:var(--sub)}.srcgrid li{break-inside:avoid;margin:0 0 8px}.sources-note{font-size:12px;color:var(--faint);margin:15px 0 0}.insight{border:1px solid var(--line);border-radius:5px;background:var(--panel);padding:17px 18px}.insight h3{font:600 16px var(--serif);margin:0 0 8px}.insight ul{padding-left:18px;margin:0;color:var(--sub);font-size:13px}.insight li{margin-bottom:8px}.insight b{color:var(--ink)}footer{margin-top:68px;border-top:1px solid var(--line);padding-top:16px;color:var(--faint);font:11.5px var(--mono);line-height:1.7}
+  @media(max-width:880px){.tier.centers,.people{grid-template-columns:repeat(2,minmax(0,1fr))}.premises{grid-template-columns:1fr}.twocol{grid-template-columns:1fr}}@media(max-width:620px){body{font-size:14px}.wrap{padding:0 16px 55px}header{padding-top:54px}.ghost{font-size:104px}.tier.leaders,.tier.centers,.people{grid-template-columns:1fr}h2{font-size:22px}.srcgrid{columns:1}#theme{right:10px;top:10px}#palm-watermark{right:10px;bottom:10px;gap:6px;opacity:.28}#palm-watermark img{width:32px;height:32px}#palm-watermark small{font-size:8.5px}}
+  @media print{body{background:#fff;color:#111}.wrap{max-width:none}.node,.person,.premise,.keyline,.tblwrap,.insight{break-inside:avoid}#theme{display:none}}
+</style>
+</head>
+<body>
+<button id="theme" type="button" aria-label="切换深色模式">☾ 深色</button>
+<div id="palm-watermark" aria-label="Palm Capital 棕榈资本"><img src="palm-capital-logo.png" alt=""><span>棕榈资本<small>PALM CAPITAL</small></span></div>
+<main class="wrap">
+  <header>
+    <div class="ghost" aria-hidden="true">智源</div>
+    <p class="eyebrow">公开信息整理 · 资料截至 2026-07-28</p>
+    <h1>智源研究院架构与关键人物地图</h1>
+    <p class="lede">智源不是一家按产品事业群展开的科技公司，而是一所由北京推动设立的<strong>非营利新型研发机构</strong>：上层是理事会领导下的院长负责制，中层以研究中心、研究组和实验室组织前沿课题，下层同时连接“智源学者”、青源会、开源项目和产业合作。<strong>公开资料没有披露完整行政部门或逐级汇报线</strong>；本页只画出可核验的公开组织关系，并将“管理岗位”“研究单元负责人”“学术网络/合作接口”严格分层。</p>
+    <div class="legend"><span>标注：</span><span class="chip confirm">2026 公开确认</span><span class="chip note">2025 公开确认</span><span class="chip scope">研究组织，不等于行政汇报线</span><span class="chip old">历史口径单列，不混入现状</span></div>
+  </header>
+
+  <section>
+    <h2><span class="no">01</span>先看清机构，而不是把它当成一支单线模型团队</h2>
+    <p class="desc">面向工作拜访、合作或人才判断，最容易误读的点在于：智源的“中心负责人”中，不少同时在高校、企业或学者计划中任职；这些是研究组织关系，不应自动推定为全职雇佣、股权关系或行政汇报关系。</p>
+    <div class="premises">
+      <article class="premise"><h3>公共研发机构，不是商业公司</h3><p>2018 年由北京市科委和海淀区政府推动成立，官方定位是<strong>非营利性新型研发机构</strong>。其任务兼具基础研究、技术研发、成果转化、人才培养与生态组织。</p></article>
+      <article class="premise"><h3>治理层与研发层分离</h3><p>制度上是<strong>理事会领导下的院长负责制</strong>。目前公开可确认：黄铁军任理事长，王仲远任院长；林咏华以副院长兼总工程师身份覆盖大模型、系统/基础软件与产业生态等方向。</p></article>
+      <article class="premise"><h3>研究中心是公开可见的最小组织单元</h3><p>官网、大会和研究人员主页通常只披露到“研究中心/研究组/实验室/方向负责人”。本图据此呈现研发地图；未公开的职能部门、预算归属、汇报关系均不做推断。</p></article>
+    </div>
+    <div class="keyline"><p><b>一页结论：</b>截至 2026 年 7 月，公开研究主线可概括为“基座/多模态模型 → 世界模型 → 具身智能”，并行发展 AI+生命科学、智能体安全、AI 系统与开源软硬件生态。王仲远负责全院；林咏华是工程、基础软件与生态合作的院级接口；黄铁军位于治理层。中心层呈现明显的“青年负责人 + 高校/产业双栖”特征。</p></div>
+  </section>
+
+  <section>
+    <h2><span class="no">02</span>公开可核验的组织地图</h2>
+    <p class="desc">以下为“最近公开信息可核验”的研究单元与接口。同一行是并列布局，<strong>不是</strong>相互汇报关系；“2024–2025 历史公开单元”另列于本节底部，不与 2026 现状混画。</p>
+    <div class="chart">
+      <div class="tier top"><article class="node topnode"><p class="ey">治理机制</p><div class="who">北京智源人工智能研究院</div><div class="role">理事会领导下的院长负责制 · 非营利性新型研发机构</div></article></div>
+      <div class="tier leaders">
+        <article class="node lane-data"><p class="ey">理事会 / 治理层</p><div class="who">黄铁军 <span class="chip confirm">理事长</span></div><div class="role">北京大学教授；研究方向为视觉信息处理、类脑智能</div><div class="detail">公开资料确认其为现任理事长；本图不列理事会全体成员，因为官方公开页面未见现行完整名单。</div></article>
+        <article class="node lane-data"><p class="ey">院长办公室</p><div class="who">王仲远 <span class="chip confirm">院长</span></div><div class="role">2024-02 起全面负责研究院各项工作</div><div class="detail"><b>林咏华</b> · 副院长兼总工程师。公开职责：大模型研究、AI 系统与基础软件、产业生态合作等。</div></article>
+      </div>
+      <div class="tier centers">
+        <article class="node lane-model"><p class="ey">基座模型 / 多模态 <span class="chip note">2025</span></p><div class="who">基础模型与多模态方向</div><ul class="teamlist"><li><strong>王鑫龙 <span class="unit">多模态大模型研究中心负责人</span></strong><span>2025–2026 连续公开确认；Emu 系列、视觉与通用多模态基础模型</span></li><li><strong>王业全 <span class="unit">FLM 团队负责人</span></strong><span>2024–2025 公开确认；语言模型与认知智能。<b>“认知大模型组负责人”未见 2026 原始页面复述，故不写为现行中心。</b></span></li><li><strong>伍昱 <span class="unit">基础模型研究中心负责人</span></strong><span>活动页公开其负责多语言多模态基础模型与飞智开源体系；<b>未找到 2026 年职务复核，列为近期可追踪接口。</b></span></li></ul></article>
+        <article class="node lane-embody"><p class="ey">世界模型 / 具身智能 <span class="chip confirm">2026</span></p><div class="who">从数字世界走向物理世界</div><ul class="teamlist"><li><strong>陈博远 <span class="unit">世界模型创新中心负责人</span></strong><span>2026 大会称“世界模型创新中心”；中关村科学城报道为“行为世界模型创新中心”。两种公开名称并存，均指向其负责的通用世界基座模型探索（Physis）。</span></li><li><strong>王鹏伟 <span class="unit">具身模型研究中心负责人</span></strong><span>ORCA 世界基座模型、RoboBrain、RoboOS。</span></li><li><strong>孙振国 <span class="unit">具身交互世界模型实验室负责人</span></strong><span>2026 世界模型论坛公开口径；与上述中心并列，不推定隶属。</span></li></ul></article>
+        <article class="node lane-life"><p class="ey">AI for Science / 生命科学</p><div class="who">生命、健康与脑科学</div><ul class="teamlist"><li><strong>叶启威 <span class="unit">健康计算研究中心负责人</span></strong><span>生成式 AI、强化学习、AI for Science；OpenComplex</span></li><li><strong>张恒贵 <span class="unit">首席科学家、生命模拟研究中心主任</span></strong><span>虚拟心脏、数字生理系统</span></li><li><strong>雷博 <span class="unit">AI + 神经科学方向负责人</span></strong><span>脑启发智能、脑科学多模态基础模型</span></li></ul></article>
+        <article class="node lane-safe"><p class="ey">安全 / 可信</p><div class="who">大模型安全研究中心</div><ul class="teamlist"><li><strong>杨耀东 <span class="unit">负责人</span></strong><span>大模型安全、智能体安全；北京大学人工智能研究院助理教授</span></li><li><strong>戴俊韬 <span class="unit">研究员</span></strong><span>强化学习与大模型价值对齐</span></li></ul></article>
+        <article class="node lane-eco"><p class="ey">AI 系统 / 开源基础设施 <span class="chip confirm">2026</span></p><div class="who">系统智能与众智 FlagOS</div><ul class="teamlist"><li><strong>刘广 <span class="unit">系统智能研究组负责人</span></strong><span>公开展示 KernelGen 等 AI 系统/算子生成工作。</span></li><li><strong>林咏华 <span class="unit">副院长兼总工程师</span></strong><span>系统及基础软件、产业生态合作的院级连接点。</span></li><li><strong>众智 FlagOS <span class="unit">开源生态项目</span></strong><span>面向多种 AI 芯片的统一系统软件栈；不是一个“部门”，且公开资料未披露单一项目负责人。</span></li></ul></article>
+        <article class="node lane-eco"><p class="ey">人才 / 学术 / 产业接口 <span class="chip confirm">2026</span></p><div class="who">不与行政架构混同的四类网络</div><ul class="teamlist"><li><strong>智源学者计划</strong><span>2026 年进入 3.0 阶段；是人才计划，不等同院内管理岗。</span></li><li><strong>青源会</strong><span>面向海内外青年学者的学术社群，不等同研究院部门。</span></li><li><strong>联培博士</strong><span>与高校科研院所联合培养；是人才培养机制，不等同用工关系。</span></li><li><strong>智源大会 / 社区 / 开源项目</strong><span>学术交流、社区传播与开源协作平台。</span></li></ul></article>
+      </div>
+    </div>
+    <div class="keyline"><p><b>历史公开单元（不并入上图）：</b>2024 年官方报道曾写明<strong>王鹤</strong>为“具身智能研究中心负责人”、<strong>仉尚航</strong>为“具身多模态大模型研究中心负责人”；2025 大会仍写王鹤为“具身智能研究中心主任”，但 2026 大会仅标其为北京大学研究员、银河通用创始人兼 CTO。由于未见 2026 年对两个中心及仉尚航的最新任职复核，本页只将其保留为研究沿革与合作线索，而不列作当前组织节点。</p></div>
+  </section>
+
+  <section>
+    <h2><span class="no">03</span>关键人物档案</h2>
+    <p class="desc">筛选可快速得到不同工作对象。人物卡只写与智源角色直接相关、且由相应公开资料支持的背景；“公开确认时间”是检索到该头衔的最近材料时间，不等于任命日期，也不将智源学者、首席科学家与院内管理岗混为一谈。</p>
+    <div class="filters" role="group" aria-label="人物类别筛选">
+      <button type="button" data-filter="all" aria-pressed="true">全部</button><button type="button" data-filter="management" aria-pressed="false">治理与管理</button><button type="button" data-filter="models" aria-pressed="false">模型与世界</button><button type="button" data-filter="science" aria-pressed="false">AI for Science</button><button type="button" data-filter="system" aria-pressed="false">安全与系统</button><button type="button" data-filter="academic" aria-pressed="false">学术网络</button>
+    </div>
+    <div class="people" id="people">
+      <article class="person lane-data" data-group="management"><div class="pname">黄铁军</div><div class="ptitle">理事长 · 北京大学计算机学院教授</div><dl><dt>角色</dt><dd>理事会层面的现任公开负责人。</dd><dt>研究</dt><dd>视觉信息处理、类脑智能。</dd><dt>意义</dt><dd><span>治理与学术旗帜人物；不应误读为日常研发总负责人。</span></dd></dl><p class="status">最后确认：2026 北京智源大会 / 北京市科委 2026</p></article>
+      <article class="person lane-data" data-group="management"><div class="pname">王仲远</div><div class="ptitle">院长</div><dl><dt>角色</dt><dd>2024 年 2 月起全面负责研究院各项工作。</dd><dt>经历</dt><dd>微软亚洲研究院、Meta、美团、快手等。</dd><dt>主轴</dt><dd><span>语言大模型、多模态、世界模型、具身智能与开源生态。</span></dd></dl><p class="status">最后确认：2026 北京智源大会</p></article>
+      <article class="person lane-data" data-group="management system"><div class="pname">林咏华</div><div class="ptitle">副院长兼总工程师</div><dl><dt>角色</dt><dd>大模型、AI 系统及基础软件、产业生态合作等方向。</dd><dt>经历</dt><dd>曾任 IBM 中国研究院院长、IBM 全球杰出工程师。</dd><dt>接口</dt><dd><span>研究工程化、算力/系统与生态合作的重要公开连接点。</span></dd></dl><p class="status">最后确认：2024–2026 大会材料</p></article>
+      <article class="person lane-model" data-group="models"><div class="pname">王鑫龙</div><div class="ptitle">多模态大模型研究中心负责人</div><dl><dt>研究</dt><dd>计算机视觉、基础模型；SOLO、EVA、Painter、SegGPT、Emu 系列。</dd><dt>价值</dt><dd><span>智源“原生多模态/世界模型”路线的核心研究人物。</span></dd><dt>外部</dt><dd>Google PhD Fellowship 获得者。</dd></dl><p class="status">公开确认时间：智源社区个人页（2026-07 检索）及 2025 大会</p></article>
+      <article class="person lane-model" data-group="models"><div class="pname">伍昱</div><div class="ptitle">基础模型研究中心负责人（近期公开口径）</div><dl><dt>公开职责</dt><dd>多语言多模态基础模型和飞智开源体系。</dd><dt>判断</dt><dd><span>基础模型与开源技术体系的可追踪接口；未找到 2026 年同一头衔的原始页面复核，不写作“当前管理岗”。</span></dd></dl><p class="status">公开确认时间：智源社区活动页（页面检索于 2026-07）</p></article>
+      <article class="person lane-model" data-group="models"><div class="pname">王业全</div><div class="ptitle">FLM 团队负责人 · 认知大模型组负责人（2025 公开）</div><dl><dt>研究</dt><dd>大模型、自然语言处理；国家新一代 AI 科技重大专项负责人。</dd><dt>代表</dt><dd>FLM 系列、Mu-Scaling。</dd><dt>定位</dt><dd><span>语言/认知大模型的院内研究负责人；中心/组名以 2025 公开口径呈现。</span></dd></dl><p class="status">公开确认时间：人大高瓴 AI 学院讲座页 2025</p></article>
+      <article class="person lane-embody" data-group="models"><div class="pname">陈博远</div><div class="ptitle">世界模型创新中心负责人（另见“行为世界模型”名称）</div><dl><dt>研究</dt><dd>强化学习、世界模型、通用世界基座模型。</dd><dt>关联</dt><dd>逆矩阵创始人兼首席研发官；Physis 项目。</dd><dt>新意</dt><dd><span>2026 年新披露的重要研究节点。大会与中关村科学城报道对中心名称表述不同，均未披露其内部层级。</span></dd></dl><p class="status">公开确认时间：中关村科学城 / 2026 北京智源大会 2026-06</p></article>
+      <article class="person lane-embody" data-group="models"><div class="pname">王鹏伟</div><div class="ptitle">具身模型研究中心负责人</div><dl><dt>研究</dt><dd>具身智能、多模态大模型、深度学习与机器学习。</dd><dt>代表</dt><dd>RoboBrain、RoboOS。</dd><dt>经历</dt><dd><span>阿里达摩院、快手大模型中台。</span></dd></dl><p class="status">最后确认：2026 北京智源大会</p></article>
+      <article class="person lane-embody" data-group="models"><div class="pname">孙振国</div><div class="ptitle">具身交互世界模型实验室负责人</div><dl><dt>角色</dt><dd>2026 世界模型论坛公开的研究单元负责人。</dd><dt>兼任</dt><dd>星源智联合创始人。</dd><dt>提示</dt><dd><span>公开页面未披露该实验室与“具身模型/世界模型创新中心”的行政层级，故只作为并列研究接口呈现。</span></dd></dl><p class="status">公开确认时间：2026 北京智源大会</p></article>
+      <article class="person lane-embody" data-group="models"><div class="pname">王鹤</div><div class="ptitle">具身智能研究中心负责人（2024–2025 公开）</div><dl><dt>兼任</dt><dd>北京大学研究员；银河通用创始人兼 CTO。</dd><dt>研究</dt><dd>三维/交互智能、合成数据、灵巧操作。</dd><dt>提示</dt><dd><span>2026 大会仍邀请其主持具身论坛，但仅以高校/企业头衔呈现；故不将其写作 2026 当前中心负责人。</span></dd></dl><p class="status">公开确认时间：2024 官方报道、2025 大会议程</p></article>
+      <article class="person lane-embody" data-group="models"><div class="pname">仉尚航</div><div class="ptitle">具身多模态大模型研究中心负责人（2024 公开）</div><dl><dt>兼任</dt><dd>北京大学研究员。</dd><dt>研究</dt><dd>具身多模态大模型、大数据构建与四维时空世界模型。</dd><dt>提示</dt><dd><span>该身份仅获 2024 官方报道确认；未将其写作 2026 现任节点。</span></dd></dl><p class="status">公开确认时间：智源官方报道 2024-11</p></article>
+      <article class="person lane-life" data-group="science"><div class="pname">叶启威</div><div class="ptitle">健康计算研究中心负责人</div><dl><dt>研究</dt><dd>生成式 AI、强化学习、AI for Science。</dd><dt>代表</dt><dd>LightGBM、Suphx、OpenComplex。</dd><dt>兼任</dt><dd><span>清华 AIR–智源健康计算联合中心联合主任。</span></dd></dl><p class="status">最后确认：2025 北京智源大会</p></article>
+      <article class="person lane-life" data-group="science"><div class="pname">张恒贵</div><div class="ptitle">首席科学家 · 生命模拟研究中心主任</div><dl><dt>兼任</dt><dd>英国曼彻斯特大学终身教授。</dd><dt>研究</dt><dd>计算心脏动力学、虚拟心脏与数字大脑系统。</dd><dt>意义</dt><dd><span>AI+医疗/数字生理系统方向的资深学术锚点。</span></dd></dl><p class="status">最后确认：2026 北京智源大会</p></article>
+      <article class="person lane-life" data-group="science"><div class="pname">雷博</div><div class="ptitle">研究员 · AI + 神经科学方向负责人</div><dl><dt>研究</dt><dd>脑启发 AI、脑科学多模态基础模型、神经数据采集与分析。</dd><dt>兼任</dt><dd>北京大学多媒体信息处理全国重点实验室研究员。</dd><dt>定位</dt><dd><span>脑科学与人工智能交叉的方向负责人。</span></dd></dl><p class="status">最后确认：2026 北京智源大会</p></article>
+      <article class="person lane-safe" data-group="system"><div class="pname">杨耀东</div><div class="ptitle">大模型安全研究中心负责人</div><dl><dt>兼任</dt><dd>北京大学人工智能研究院助理教授、研究员。</dd><dt>研究</dt><dd>大模型安全、智能体安全与可信 AI。</dd><dt>定位</dt><dd><span>模型能力加速扩张后，智源安全研究的公开负责人。</span></dd></dl><p class="status">最后确认：2026 北京智源大会</p></article>
+      <article class="person lane-eco" data-group="system"><div class="pname">刘广</div><div class="ptitle">系统智能研究组负责人</div><dl><dt>研究</dt><dd>AI 系统与基础软件；大会公开展示 KernelGen 相关工作。</dd><dt>接口</dt><dd><span>与众智 FlagOS 的多芯片、算子与训练系统生态相邻，但公开资料未将其表述为项目总负责人。</span></dd></dl><p class="status">最后确认：2026 北京智源大会</p></article>
+      <article class="person lane-model" data-group="academic"><div class="pname">朱军</div><div class="ptitle">智源首席科学家（2025 公开）</div><dl><dt>兼任</dt><dd>清华大学人工智能研究院副院长；生数科技创始人兼首席科学家。</dd><dt>研究</dt><dd>机器学习、生成模型。</dd><dt>边界</dt><dd><span>“首席科学家”是学术角色，不等同智源行政管理岗位或企业隶属关系。</span></dd></dl><p class="status">公开确认时间：2025 北京智源大会</p></article>
+      <article class="person lane-life" data-group="academic"><div class="pname">刘嘉</div><div class="ptitle">智源首席科学家（2025 公开）</div><dl><dt>兼任</dt><dd>清华大学教授、清华脑与智能实验室首席研究员。</dd><dt>研究</dt><dd>脑与认知科学、类脑智能。</dd><dt>边界</dt><dd><span>2025 会议材料以“智源首席科学家”表述；未将其放入院长办公室或研究中心汇报图。</span></dd></dl><p class="status">公开确认时间：2025 北京智源大会</p></article>
+      <article class="person lane-model" data-group="academic"><div class="pname">刘知远</div><div class="ptitle">智源学者</div><dl><dt>兼任</dt><dd>清华大学计算机系教授；面壁智能创始人兼首席科学家。</dd><dt>关联</dt><dd>曾参与悟道大模型研发。</dd><dt>边界</dt><dd><span>智源学者是人才计划身份，不等同研究院管理岗；也不据此推断智源对面壁智能的组织关系。</span></dd></dl><p class="status">公开确认时间：智源社区 2026-06</p></article>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="no">04</span>身份机制：管理岗、首席科学家与智源学者不是一回事</h2>
+    <p class="desc">这一层是理解智源“架构和人”的关键。公开页面经常把科研人员的高校、企业和智源角色并列展示；以下是应采用的判读方式。</p>
+    <div class="tblwrap"><table><thead><tr><th>身份</th><th>典型对象</th><th>公开可确认的含义</th><th>不应推断的内容</th></tr></thead><tbody>
+      <tr><td>院级管理岗</td><td>理事长、院长、副院长兼总工程师</td><td>治理或院务/工程生态职责；最接近机构日常决策层。</td><td>未披露的部门、预算、人员汇报线。</td></tr>
+      <tr><td>研究单元负责人</td><td>研究中心、研究组、实验室或方向负责人</td><td>对特定研究主题和团队/课题的领导角色。</td><td>彼此的行政隶属关系、全职程度或商业授权范围。</td></tr>
+      <tr><td>首席科学家</td><td>张恒贵、朱军、刘嘉等公开材料中的称谓</td><td>高层次学术牵引角色；可同时保有高校或企业身份。</td><td>行政岗位、法定代表人、独立事业部负责人。</td></tr>
+      <tr><td>智源学者 / 青源会成员</td><td>刘知远、施柏鑫等智源学者；青年学术社群成员</td><td>学术人才计划或社群网络，是研究院的“外延组织能力”。</td><td>劳动雇佣、内部汇报或对其创业公司的股权/控制关系。</td></tr>
+      <tr><td>开源项目/活动平台</td><td>FlagOpen、众智 FlagOS、智源大会、智源社区</td><td>技术协作、开发者生态、学术交流或传播载体。</td><td>一个与项目同名的独立部门，或单一项目负责人的推断。</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section>
+    <h2><span class="no">05</span>对外合作与业务判断：该找谁、先问什么</h2>
+    <p class="desc">这不是“投资建议”，而是便于推进科研合作、产业合作、人才交流或生态项目的入口表。研究中心命名会迭代，首次联系前应以最新论文、招聘页或活动议程再次确认。</p>
+    <div class="twocol">
+      <div class="tblwrap"><table><thead><tr><th>需求/赛道</th><th>优先入口</th><th>可从公开成果切入</th></tr></thead><tbody>
+        <tr><td>多模态/视觉/生成</td><td>王鑫龙；基础模型方向</td><td>Emu 系列、视觉基础模型、统一多模态</td></tr>
+        <tr><td>世界模型/物理 AI</td><td>陈博远；王鹏伟；孙振国</td><td>Physis、ORCA、RoboBrain、RoboOS、具身交互世界模型</td></tr>
+        <tr><td>机器人/具身数据</td><td>王鹏伟；王鹤/仉尚航（历史公开口径）</td><td>端到端具身模型、仿真/合成数据、4D 世界建模</td></tr>
+        <tr><td>AI for Science/医疗</td><td>叶启威；张恒贵；雷博</td><td>蛋白复合物、数字生理、脑科学</td></tr>
+        <tr><td>模型安全/智能体治理</td><td>杨耀东</td><td>大模型安全评测、价值对齐、智能体安全</td></tr>
+        <tr><td>国产算力/训练软件栈</td><td>林咏华；刘广；FlagOS 生态</td><td>多芯片统一软件栈、算子与系统</td></tr>
+      </tbody></table></div>
+      <aside class="insight"><h3>合作前的三个核验问题</h3><ul><li><b>角色有效性：</b>对方是研究中心负责人、项目负责人、智源学者，还是合作方？三者的决策权限不同。</li><li><b>项目边界：</b>落在公开基础研究、政府课题、开源生态还是企业孵化？知识产权、数据与算力投入安排会显著不同。</li><li><b>中心更名与人员流动：</b>具身、世界模型等方向增长快，中心名称和负责人标签存在年度迭代；以最近一次官方活动/论文署名为准。</li></ul></aside>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="no">06</span>成果与开源项目：用项目看组织能力，而不是反推部门</h2>
+    <p class="desc">同一个项目可能跨越多个中心或由生态伙伴共同开发；下表用于识别技术资产和协作接口，不将项目归给某个未被官方披露的单一部门或个人。</p>
+    <div class="tblwrap"><table><thead><tr><th>层次</th><th>代表成果/项目</th><th>公开定位</th><th>最新可核验节点</th></tr></thead><tbody>
+      <tr><td>语言大模型</td><td>悟道 1.0 / 2.0 / 3.0</td><td>智源大模型早期主线；官网将其列为研究历程的重要节点。</td><td>2021–2022 发布节点，属发展沿革</td></tr>
+      <tr><td>多模态/世界模型</td><td>Emu2、Emu3、Emu3.5 / 悟界</td><td>从统一多模态到“下一状态预测”的世界模型研究序列。</td><td>Emu3：2024；Emu3.5：2025-10；Nature 正刊：2026-01</td></tr>
+      <tr><td>具身模型</td><td>ORCA、RoboBrain、RoboOS、RoboBrain-Dex</td><td>世界基座模型、具身大脑、跨本体协作与灵巧操作研究。</td><td>2026 大会与官网新闻</td></tr>
+      <tr><td>脑科学 / 生命科学</td><td>Brainμ、OpenComplex2.5、数字孪生心脏</td><td>神经科学多模态通用基座、全原子生物分子模型与生理仿真。</td><td>2025–2026 官网/大会发布</td></tr>
+      <tr><td>安全</td><td>FlagEval、ClawKeeper</td><td>大模型评测与面向 OpenClaw 的智能体安全框架。</td><td>ClawKeeper v1.0 于 2026-04 官方发布</td></tr>
+      <tr><td>开源/基础设施</td><td>FlagOpen、众智 FlagOS</td><td>模型技术开源体系与多芯片统一系统软件栈。</td><td>FlagOS 2.0 / 多芯片训练验证，2026-03 至 04</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section>
+    <h2><span class="no">07</span>机构演进：从“悟道”到“悟界”</h2>
+    <p class="desc">时间线说明技术重心为什么会自然分化成今天的几条中心线；它不是完整组织沿革。</p>
+    <div class="twocol"><ol class="tl"><li><time>2018-11</time><b>智源研究院成立。</b>北京推动设立，采用理事会领导下的院长负责制。</li><li><time>2019</time><b>智源学者计划启动。</b>以开放学术网络集聚研究人才，形成区别于单一企业实验室的机制。</li><li><time>2020–2022</time><b>悟道大模型阶段。</b>从悟道攻关团队到悟道 1.0/2.0/3.0，奠定语言大模型与开放平台基础。</li><li><time>2023–2024</time><b>FlagOpen 与原生多模态。</b>Emu 系列将视觉、多模态与世界模型推进为主线；FlagOpen 承接技术开源体系。</li><li><time>2024-02</time><b>王仲远接任院长。</b>公开表述将重点扩展至语言、多模态、世界模型、具身智能与开源生态。</li><li><time>2025–2026</time><b>“悟界”及物理世界方向强化。</b>具身模型、行为世界模型、FlagOS、多芯片系统栈与 AI+生命科学并行发展。</li></ol><aside class="insight"><h3>生态位置，不等于控股或组织隶属</h3><ul><li><b>人才源头：</b>唐杰（智谱）、杨植麟（月之暗面）、刘知远（面壁）、王鹤（银河通用）等，在智源曾开展相关研究或参与智源学术网络。</li><li><b>正确表述：</b>“智源研究/学者经历或生态关联”比“智源系公司”更准确。公开资料不足以证明研究院对各企业存在控制或现行组织隶属。</li><li><b>FA 视角：</b>可把智源看作北京 AI 的前沿研究、人才流动与开源基础设施枢纽；企业合作关系须单独核验。</li></ul></aside></div>
+  </section>
+
+  <section>
+    <h2><span class="no">08</span>来源与证据边界</h2>
+    <p class="desc">优先采用官方机构、政府网站与智源大会资料；中心负责人、职称均尽量采用页面原始表述。两类必要的例外已经明确标注：一是同一研究单元在不同官方页面出现不同名称（如“世界模型创新中心/行为世界模型创新中心”），二是 2024–2025 的具身中心头衔未在 2026 页面复述。两者均不作现职或汇报线断言。</p>
+    <ul class="srcgrid">
+      <li><a href="https://www.most.gov.cn/dfkj/bj/tpxw/201811/t20181123_143106.html" target="_blank" rel="noopener">科技部：北京发布智源行动计划、研究院成立</a>（2018）</li>
+      <li><a href="https://www.baai.ac.cn/about-us" target="_blank" rel="noopener">智源官网：机构简介、历程与近期动态</a></li>
+      <li><a href="https://hub.baai.ac.cn/view/34876" target="_blank" rel="noopener">智源：王仲远博士加入并接任院长</a>（2024-02）</li>
+      <li><a href="https://2026.baai.ac.cn/about" target="_blank" rel="noopener">2026 北京智源大会：黄铁军、王仲远、张恒贵等介绍</a></li>
+      <li><a href="https://2026.baai.ac.cn/schedule" target="_blank" rel="noopener">2026 北京智源大会议程：王鹏伟、杨耀东、雷博、刘广等职务</a></li>
+      <li><a href="https://hub.baai.ac.cn/view/55074" target="_blank" rel="noopener">智源：2026 具身智能与人形机器人论坛</a>（王鹏伟的中心职务及 ORCA/RoboBrain/RoboOS）</li>
+      <li><a href="https://hub.baai.ac.cn/view/55237" target="_blank" rel="noopener">智源：2026 世界模型论坛</a>（孙振国、具身交互世界模型实验室）</li>
+      <li><a href="https://2025.baai.ac.cn/schedule" target="_blank" rel="noopener">2025 北京智源大会议程：王鑫龙、叶启威等职务</a></li>
+      <li><a href="https://www.baai.ac.cn/zh-cn/news-article?formid=562" target="_blank" rel="noopener">智源：2024 具身与世界模型专题峰会</a>（王鹤、仉尚航）</li>
+      <li><a href="https://www.ncsti.gov.cn/kjdt/scyq/zgckxc/zgcdt/202606/t20260609_249237.html" target="_blank" rel="noopener">中关村科学城：陈博远任行为世界模型创新中心负责人</a>（2026-06）</li>
+      <li><a href="https://ai.ruc.edu.cn/newslist/lecture/20250701005.html" target="_blank" rel="noopener">中国人民大学高瓴 AI 学院：智源科研工作分享</a>（王业全、叶启威、王鹏伟、王鑫龙）</li>
+      <li><a href="https://event.baai.ac.cn/event/609" target="_blank" rel="noopener">智源社区活动：伍昱为基础模型研究中心负责人</a></li>
+      <li><a href="https://kw.beijing.gov.cn/xwdt/kcyx/kcyxkchd/202602/t20260205_4492776.html" target="_blank" rel="noopener">北京市科委：2026 智源学者年会</a></li>
+      <li><a href="https://hub.baai.ac.cn/view/55189" target="_blank" rel="noopener">智源：刘知远的智源学者身份</a>（2026）</li>
+      <li><a href="https://hub.baai.ac.cn/view/37879" target="_blank" rel="noopener">智源：FlagOS 的系统栈构成</a>（项目性质与技术范围）</li>
+      <li><a href="https://www.baai.ac.cn/research" target="_blank" rel="noopener">智源官网：研究成果页</a>（Emu、Brainμ、OpenComplex、数字孪生心脏等）</li>
+      <li><a href="https://hub.baai.ac.cn/view/49965" target="_blank" rel="noopener">智源：悟界·Emu3.5 发布</a>（2025-10）</li>
+      <li><a href="https://hub.baai.ac.cn/view/53121" target="_blank" rel="noopener">智源：RoboBrain-Dex 发布</a>（2026-03）</li>
+      <li><a href="https://hub.baai.ac.cn/view/53601" target="_blank" rel="noopener">智源：众智 FlagOS 2.0 发布</a>（2026-04）</li>
+      <li><a href="https://hub.baai.ac.cn/view/55492" target="_blank" rel="noopener">智源：2026 北京智源大会开幕与研究进展</a></li>
+    </ul>
+    <p class="sources-note">整理方法：① 2026 页面直接出现的头衔，标为“2026 公开确认”；② 仅见 2025 或更早材料的头衔，保留时间标签，避免写成现职；③ 没有将大会嘉宾、智源学者、历史任职或创业公司关系补画成内部汇报线。更新建议：正式外联前，以最近 90 天官方活动、论文作者页、招聘页或当事人公开主页复核目标人头衔。</p>
+  </section>
+  <footer>北京智源人工智能研究院 · 公开信息地图 · v1.0 · 2026-07-28 · 供研究、拜访准备与生态梳理使用</footer>
+</main>
+<script>
+  (function(){
+    const root=document.documentElement,theme=document.getElementById('theme');
+    let preferred=''; try{preferred=localStorage.getItem('baai-theme')||''}catch(e){}
+    if(preferred==='dark') root.dataset.theme='dark';
+    function paint(){const dark=root.dataset.theme==='dark';theme.textContent=dark?'☀ 浅色':'☾ 深色';theme.setAttribute('aria-label',dark?'切换浅色模式':'切换深色模式')}
+    paint(); theme.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'':'dark';try{localStorage.setItem('baai-theme',root.dataset.theme||'light')}catch(e){}paint()});
+    const buttons=[...document.querySelectorAll('[data-filter]')], cards=[...document.querySelectorAll('.person')];
+    buttons.forEach(button=>button.addEventListener('click',()=>{const value=button.dataset.filter;buttons.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));cards.forEach(card=>card.hidden=value!=='all'&&!card.dataset.group.split(' ').includes(value))}));
+  })();
+</script>
+</body>
+</html>
